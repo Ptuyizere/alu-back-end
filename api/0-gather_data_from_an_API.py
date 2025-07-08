@@ -29,6 +29,8 @@ Note:
 - Follows PEP 8 coding standards.
 """
 
+
+import csv
 import requests
 import sys
 

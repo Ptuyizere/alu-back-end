@@ -29,8 +29,8 @@ Note:
 - Follows PEP 8 coding standards.
 """
 
-import requests
 import sys
+import requests
 
 
 def get_employee_todo_progress(emp_id):

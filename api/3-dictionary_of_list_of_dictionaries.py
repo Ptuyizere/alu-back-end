@@ -2,7 +2,7 @@
 """
 0-gather_data_from_an_API.py module
 
-This module fetches TODO tasks for all employees from the API 
+This module fetches TODO tasks for all employees from the API
 and exports to JSON formatt file.
 
 Features:

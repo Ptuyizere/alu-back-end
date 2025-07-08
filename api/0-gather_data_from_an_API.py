@@ -1,6 +1,32 @@
 #!/usr/bin/python3
 """
-This module fetches and displays the TODO list progress of a given employee from a placeholder API.
+0-gather_data_from_an_API.py
+
+This module interacts with the JSONPlaceholder API to retrieve and display
+TODO list progress for a given employee ID.
+
+Features:
+- Connects to the JSONPlaceholder API (https://jsonplaceholder.typicode.com)
+- Retrieves the employee's name and their TODO tasks
+- Calculates the number of completed tasks
+- Displays the progress and titles of completed tasks
+
+Usage:
+    Run this module from the command line with an integer employee ID:
+
+        $ python3 0-gather_data_from_an_API.py <employee_id>
+
+Example:
+    $ python3 e0-gather_data_from_an_API.py 2
+    Employee Ervin Howell is done with tasks(8/20):
+         distinctio vitae autem nihil ut molestias quo
+         adipisci atque cum quia aspernatur totam laudantium et
+         ...
+
+Note:
+- This script must not be executed on import.
+- All dictionary access uses `.get()` to avoid exceptions.
+- Follows PEP 8 coding standards.
 """
 
 import requests

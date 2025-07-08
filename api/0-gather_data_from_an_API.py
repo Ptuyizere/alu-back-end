@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-0-gather_data_from_an_API.py
+0-gather_data_from_an_API.py module
 
 This module interacts with the JSONPlaceholder API to retrieve and display
 TODO list progress for a given employee ID.
@@ -17,7 +17,7 @@ Usage:
         $ python3 0-gather_data_from_an_API.py <employee_id>
 
 Example:
-    $ python3 e0-gather_data_from_an_API.py 2
+    $ python3 0-gather_data_from_an_API.py 2
     Employee Ervin Howell is done with tasks(8/20):
          distinctio vitae autem nihil ut molestias quo
          adipisci atque cum quia aspernatur totam laudantium et
@@ -32,16 +32,17 @@ Note:
 import requests
 import sys
 
-def get_emp_todo_progress(emp_id):
+
+def get_employee_todo_progress(emp_id):
     """
     Fetch and display the TODO list progress for the given employee ID.
+
     Args:
-        emp_id (int): ID of the employee
+        employee_id (int): ID of the employee
     """
-    
-    base_url = "https://jsonplaceholder.typicode.com"
-    user_url = f"{base_url}/users/{emp_id}"
-    todos_url = f"{base_url}/todos?userId={emp_id}"
+    base_url = 'https://jsonplaceholder.typicode.com'
+    user_url = f'{base_url}/users/{emp_id}'
+    todos_url = f'{base_url}/todos?userId={emp_id}'
 
     user_response = requests.get(user_url)
     todos_response = requests.get(todos_url)
@@ -49,23 +50,22 @@ def get_emp_todo_progress(emp_id):
     user_data = user_response.json()
     todos_data = todos_response.json()
 
-    employee_name = user_data.get("name")
-    if not employee_name:
+    emp_name = user_data.get('name')
+    if not emp_name:
         return
 
     total_tasks = len(todos_data)
-    done_tasks = [task for task in todos_data if task.get("completed") is True]
+    done_tasks = [task for task in todos_data if task.get('completed') is True]
     number_of_done_tasks = len(done_tasks)
 
-    print(f"Employee {employee_name} is done with tasks"
+    print(f"Employee {emp_name} is done with tasks"
           f"({number_of_done_tasks}/{total_tasks}):")
 
     for task in done_tasks:
         print(f"\t {task.get('title')}")
 
 
-
 if __name__ == "__main__":
     if len(sys.argv) == 2 and sys.argv[1].isdigit():
         emp_id = int(sys.argv[1])
-        get_emp_todo_progress(emp_id)
+        get_employee_todo_progress(emp_id)

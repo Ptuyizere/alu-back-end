@@ -2,7 +2,8 @@
 """
 0-gather_data_from_an_API.py module
 
-This module fetches TODO tasks for all employees from the API and exports to JSON formatt file.
+This module fetches TODO tasks for all employees from the API 
+and exports to JSON formatt file.
 
 Features:
 - Connects to the JSONPlaceholder API (https://jsonplaceholder.typicode.com)
@@ -41,7 +42,7 @@ def export_all_employees_todos():
     todos = todos_response.json()
 
     user_dict = {user.get('id'): user.get('username') for user in users}
-    
+
     all_todos = {}
     for todo in todos:
         user_id = todo.get("userId")

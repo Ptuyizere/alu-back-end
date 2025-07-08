@@ -61,6 +61,5 @@ def export_all_employees_todos():
     with open(filename, mode="w", encoding="utf-8") as jsonFile:
         json.dump(all_todos, jsonFile)
 
-
 if __name__ == "__main__":
     export_all_employees_todos()
